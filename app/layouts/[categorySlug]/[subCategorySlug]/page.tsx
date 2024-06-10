@@ -1,5 +1,6 @@
-import { getCategory } from '#/app/api/categories/getCategories';
-import { SkeletonCard } from '#/ui/skeleton-card';
+import { getCategory } from "#/app/api/categories/getCategories";
+import { SkeletonCard } from "#/ui/skeleton-card";
+import { notFound, redirect } from "next/navigation";
 
 export default async function Page({
   params,
@@ -7,6 +8,7 @@ export default async function Page({
   params: { subCategorySlug: string };
 }) {
   const category = await getCategory({ slug: params.subCategorySlug });
+  redirect("https://app-redirection-rsc-error.vercel.app/layouts/");
 
   return (
     <div className="space-y-4">
