@@ -4,11 +4,19 @@ import { notFound, redirect } from "next/navigation";
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: { subCategorySlug: string };
+  searchParams: { foo?: string };
 }) {
   const category = await getCategory({ slug: params.subCategorySlug });
-  redirect("https://app-redirection-rsc-error.vercel.app/layouts/?foo=bar");
+  if (searchParams.foo) {
+    redirect("https://app-redirection-rsc-error.vercel.app/layouts/");
+  } else {
+    redirect(
+      "https://app-redirection-rsc-error.vercel.app/layouts/electronics/phones/?foo=bar"
+    );
+  }
 
   return (
     <div className="space-y-4">
