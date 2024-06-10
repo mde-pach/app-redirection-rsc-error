@@ -8,7 +8,7 @@ export default async function Page({
   params: { subCategorySlug: string };
 }) {
   const category = await getCategory({ slug: params.subCategorySlug });
-  redirect("https://app-redirection-rsc-error.vercel.app/layouts/");
+  redirect("https://app-redirection-rsc-error.vercel.app/layouts/?foo=bar");
 
   return (
     <div className="space-y-4">
